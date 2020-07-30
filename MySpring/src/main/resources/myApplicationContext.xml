@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans>
+
+    <!--将A配置到Spring容器中-->
+    <bean name="A" class="com.xcy.A">
+        <!--为A的name属性赋值为xcy spring会自动将配置的值注入到A中-->
+        <property name="name" value="xcy"></property>
+    </bean>
+
+    <!--将B配置到Spring容器中-->
+    <bean name="B" class="com.xcy.B">
+        <!--ref表示将bean为A的类注入到此处B内-->
+        <property name="a" ref="A"></property>
+    </bean>
+
+    <!--将B配置到Spring容器中-->
+    <bean name="C" class="com.xcy.C">
+        <!--ref表示将bean为A的类注入到此处B内-->
+        <property name="b" ref="B"></property>
+    </bean>
+
+</beans>
