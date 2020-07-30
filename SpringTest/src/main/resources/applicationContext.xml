@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <!--将A配置到Spring容器中-->
+    <bean name="A" class="com.xcy.A">
+        <!--为A的name属性赋值为xcy spring会自动将配置的值注入到A中-->
+        <property name="name" value="xcy"></property>
+    </bean>
+
+    <!--将B配置到Spring容器中-->
+    <bean name="B" class="com.xcy.B">
+        <!--ref表示将bean为A的类注入到此处B内-->
+        <property name="a" ref="A"></property>
+    </bean>
+
+
+</beans>
