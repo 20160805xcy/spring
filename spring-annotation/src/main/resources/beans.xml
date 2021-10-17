@@ -6,6 +6,7 @@
 
     <!--<context:component-scan base-package="com.xcy"></context:component-scan>-->
     <bean id="person" class="com.xcy.Person">
+    <!--<bean id="person" class="com.xcy.Person" init-method="" destroy-method="">-->
         <property name="name" value="肖承优"></property>
         <property name="age" value="18"></property>
     </bean>
