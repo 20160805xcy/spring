@@ -26,6 +26,10 @@ import org.springframework.context.annotation.Scope;
  * 1）、指定初始化和销毁方法
  * 在beans.xml进行配置 init-method="" destroy-method=""
  * 2）、通过Bean实现InitializingBean（定义初始化逻辑），实现DisposableBean（定义销毁逻辑）
+ * 3）、可以使用JSR250:
+ *      @PostConstruct: 在bean创建完成并且属性赋值完成后执行初始化方法
+ *      @PreDestroy: 在容器销毁bean之前通知我们进行清理工作
+ *
  * @author xcy
  * @Description
  * @date 2021/10/17 20:34
