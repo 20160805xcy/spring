@@ -2,6 +2,7 @@ package com.xcy.service;
 
 import com.xcy.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
+    @Qualifier("userDao2")
     @Autowired
     private UserDao userDao;
 
