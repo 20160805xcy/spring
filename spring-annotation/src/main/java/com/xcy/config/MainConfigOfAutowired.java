@@ -13,11 +13,18 @@ import org.springframework.context.annotation.Configuration;
  *      1) 、默认优先按照类型去容器中对应的组件：applicationContext.getBean(UserDao.class),找到就赋值。
  *      2) 、如果找到多个相同类型的组件，再将属性的名称作为组件的id去容器中查找: applicationContext.getBean("userDao")
  *      3) 、@Qualifier("userDao2"):使用@Qualifier指定需要装配的组件id，而不是使用属性名
+ *      4）、自动装配默认一定要将属性赋值好，没有就会报错：
+ *              可以使用@Autowired(required=false);来进行配置不一定必需要将属性赋值，有则赋值，没有就没有。
+ *      5）、@Primary:让spring自动装配的时候，默认使用首选的bean
  *      UserService{
  *          @Autowired
  *          UserDao userDao;
  *      }
+ * 2）、Spring还支持使用@Resource(JSR250规范)和@Inject(JSR330)[JAVA规范的注解]
+ *      @Resource 可以和@Autowired一样实现自动装配的功能；默认是按照组件名称进行装配，但是没有支持@Primary和@Autowired(required=false)的功能。
+ *      @Inject 需要额外导入javax.inject的包，和Autowired的功能一样
  *
+ * @Autowired 是Spring定义的，@Resource 是java规范定义的。
  *
  * @date 2021/10/18 23:39
  */
