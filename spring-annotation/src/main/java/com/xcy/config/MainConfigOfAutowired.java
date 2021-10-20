@@ -26,6 +26,15 @@ import org.springframework.context.annotation.Configuration;
  *
  * @Autowired 是Spring定义的，@Resource 是java规范定义的。
  *
+ * 3）、@Autowired可以使用在构造方法上，字段属性，参数，方法，注解类型上
+ *       标注在方法上：Spring容器创建当前对象，就会调用方法，完成赋值，方法 使用的参数，自定义类型的值从ioc容器中获取。@Bean标注的方法创建对象的时候，方法参数的值从容器中获取。默认不写@Autowired,效果是一样的，可以省略，都能自动装配。
+ *       标注在构造器上：如果组件只有一个有参构造器，这个有参构造器的@Autowired可以省略，参数位置的组件还是可以自动从容器中获取。
+ * 4）、自定义组件想要使用Spring容器底层的一些组件（ApplicationContext,BeanFactory,xxx）;自定义组件实现xxxAware.在创建对象的时候，会调用接口规定的方法注入相关组件。
+ *          通过看Aware接口的设计来进行参考，
+ *          把Spring底层的一些组件注入到自定义的Bean中。
+ *          xxxAware：功能使用xxxProcessor后置处理器来进行处理的-->如ApplicationContextAware==>ApplicationContextAwareProcessor
+ *
+ *
  * @date 2021/10/18 23:39
  */
 @Configuration
